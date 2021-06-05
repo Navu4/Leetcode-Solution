@@ -51,3 +51,4 @@ class Solution {
         return mergeKLists(lists, 0, lists.length - 1);
     }
 }
+
