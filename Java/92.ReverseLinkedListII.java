@@ -9,6 +9,55 @@
  * }
  */
 class Solution {
+
+    // OPTIMIZED AND SEXSY WAY 
+
+    ListNode th = null, tt = null;
+    public void addFirstNode(ListNode node){
+        if(th == null){
+            th = tt = node;
+        } else {
+            node.next = th;
+            th = node;
+        }
+    }
+    
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if(head.next == null || left == right)
+            return head;
+        
+        ListNode curr = head, prev = null , forw = null;
+        
+        int itr = 1;
+        while(curr != null && itr <= right){
+            forw = curr.next;
+            if(itr == left - 1){
+                prev = curr;
+            }
+            if(itr >= left && itr <= right){
+                
+                curr.next = null;
+                addFirstNode(curr);
+            }
+            curr = forw;
+            itr++; 
+        }
+        
+        if(prev == null)
+            head = th;
+        else
+            prev.next = th;
+
+        tt.next = forw;
+        th = tt = null;
+        
+        return head;
+    }
+
+    // ====================================================================
+
+
+    // MY SOLUTION 
     public ListNode reverseLinkedList(ListNode head, ListNode after){
     	ListNode prev = after;
     	ListNode curr = head;
