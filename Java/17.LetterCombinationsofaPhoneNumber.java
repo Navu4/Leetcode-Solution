@@ -1,6 +1,6 @@
 class Solution {
-	String[] codes = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-
+	String[] codes = {
+ "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 	public List<String> letterCombinations(String str, int idx){
         if(idx == str.length()){
             List<String> base = new ArrayList<>();
